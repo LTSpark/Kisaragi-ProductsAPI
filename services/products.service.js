@@ -9,9 +9,11 @@ class ProductService {
     await ProductInformation.create(productInformationData);
   }
 
-  async getProducts() {
-    return await Product.findAll({
+  async getProducts(from, limit) {
+    return Product.findAll({
       include: ["productInformation"],
+      limit: limit,
+      offset: from
     });
   }
 }

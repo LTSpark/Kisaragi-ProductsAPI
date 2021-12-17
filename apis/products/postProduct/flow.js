@@ -2,7 +2,7 @@ const ProductService = require("../../../services/products.service");
 const { cloudinaryImageUpload } = require("../../../utils/cloudinaryImageUpload");
 const { errorResponse, customResponse } = require("../../../utils/responses");
 
-const ProductServiceFlow = async(req, res) => {
+const PostProductFlow = async(req, res) => {
     const { brand, series, country, description, ...product } = req.body;
     const { name, price, quantity, available, ...productInformation} = req.body;
     product.ownerId = req.userId;
@@ -17,4 +17,4 @@ const ProductServiceFlow = async(req, res) => {
     }
 }
 
-module.exports = ProductServiceFlow;
+module.exports = PostProductFlow;
