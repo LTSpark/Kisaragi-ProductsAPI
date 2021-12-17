@@ -4,7 +4,8 @@ const ProductInformation = db.ProductInformations;
 
 class ProductService {
   async createProduct(productData, productInformationData) {
-    await Product.create(productData);
+    const product = await Product.create(productData);
+    productInformationData.product_id = product.id;
     await ProductInformation.create(productInformationData);
   }
 
