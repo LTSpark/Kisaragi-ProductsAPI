@@ -4,7 +4,8 @@
   "description": "REST API for Kisaragi Products",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node app.js",
+    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
   "author": "Leonardo Torres",
   "license": "MIT",
@@ -18,6 +19,7 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.12.0-beta.3"
+    "sequelize": "^6.12.0-beta.3",
+    "sequelize-cli": "^6.3.0"
   }
 }

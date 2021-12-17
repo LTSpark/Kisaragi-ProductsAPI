@@ -1,4 +1,4 @@
-const { Router } = require('express');
+const { Router } = require("express");
 
 const PostProductFlow = require("../apis/products/postProduct/flow");
 const PostProductValidators = require("../apis/products/postProduct/validators");
