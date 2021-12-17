@@ -3,10 +3,10 @@ const Product = db.Products;
 const ProductInformation = db.ProductInformations;
 
 class ProductService {
-    async createProduct(productData, productInformationData) {
-        await Product.create(productData);
-        await ProductInformation.create(productInformationData);
-    }
+  async createProduct(productData, productInformationData) {
+    await Product.create(productData);
+    await ProductInformation.create(productInformationData);
+  }
 }
 
 const productService = new ProductService();
