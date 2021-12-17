@@ -2,10 +2,9 @@ const db = require("../models");
 const Product = db.Products;
 const ProductInformation = db.ProductInformations;
 
-const { cloudinaryImageDelete } = require('../utils/cloudinaryImageDelete');
+const { cloudinaryImageDelete } = require("../utils/cloudinaryImageDelete");
 
 class ProductService {
-
   async createProduct(productData, productInformationData) {
     const product = await Product.create(productData);
     productInformationData.product_id = product.id;
@@ -14,14 +13,17 @@ class ProductService {
 
   getProducts(from, limit) {
     return Product.findAll({
-      include: ["productInformation"],
+      include: ["productInformation", "commentary"],
       limit: limit,
-      offset: from
+      offset: from,
     });
   }
 
   getProduct(id) {
-    return Product.findByPk(id);
+    return Product.findOne({
+      where: { id },
+      include: ["commentary"],
+    });
   }
 
   async deleteProduct(id) {
@@ -34,7 +36,6 @@ class ProductService {
     await Product.update(productData, { where: { id } });
     await Product.update(productInformationData, { where: { product_id: id } });
   }
-
 }
 
 const productService = new ProductService();
