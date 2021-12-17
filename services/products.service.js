@@ -7,6 +7,12 @@ class ProductService {
     await Product.create(productData);
     await ProductInformation.create(productInformationData);
   }
+
+  async getProducts() {
+    return await Product.findAll({
+      include: ["productInformation"],
+    });
+  }
 }
 
 const productService = new ProductService();
