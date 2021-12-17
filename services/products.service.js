@@ -22,7 +22,7 @@ class ProductService {
   getProduct(id) {
     return Product.findOne({
       where: { id },
-      include: ["commentary"],
+      include: ["commentary", "productInformation"],
     });
   }
 
