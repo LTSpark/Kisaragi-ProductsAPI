@@ -2,8 +2,10 @@ const express = require('express');
 const router  = express.Router();
 
 const products = require("./products");
+const commentaries = require("./commentaries");
 
 router.use("/products", products);
+router.use("/commentaries", commentaries)
 
 //The 404 Route (ALWAYS Keep this as the last route)
 router.use('*', (_, res) => {

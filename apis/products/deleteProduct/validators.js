@@ -4,7 +4,7 @@ const { authToken } = require("../../../middlewares/authToken");
 const { productExists, productAuthor } = require("../../../middlewares/databaseValidators");
 const { fieldValidation } = require("../../../middlewares/fieldValidation");
 
-const UpdateProductValidators = [
+const DeleteProductValidators = [
     authToken,
     param("id").isInt(),
     param("id").custom(productExists),
@@ -12,4 +12,4 @@ const UpdateProductValidators = [
     productAuthor
 ];
 
-module.exports = UpdateProductValidators;
+module.exports = DeleteProductValidators;
