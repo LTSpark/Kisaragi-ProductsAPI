@@ -1,6 +1,6 @@
 const db = require("../models");
-const Product = db.Product;
-const ProductInformation = db.Product;
+const Product = db.Products;
+const ProductInformation = db.ProductInformations;
 
 class ProductService {
     async createProduct(productData, productInformationData) {
