@@ -21,7 +21,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       available: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       image: {
         type: Sequelize.STRING
