@@ -7,14 +7,15 @@ class CommentaryService {
     async createCommentary(commentaryData){
         await Commentary.create(commentaryData);
     }
-    async deleteCommentary(id, product_id, ownerId){
+    async deleteCommentary(id){
         await Commentary.destroy({
             where: {
-                id,
-                product_id,
-                ownerId
+                id
             }
-        })
+        });
+    }
+    getCommentary(id){
+        return Commentary.findByPk(id);
     }
 }
 

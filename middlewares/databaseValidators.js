@@ -1,4 +1,6 @@
+const CommentaryService = require("../services/commentaries.service");
 const ProductService = require("../services/products.service");
+
 const { customErrorResponse } = require("../utils/responses");
 
 const productExists = async id => {
@@ -16,7 +18,16 @@ const productAuthor = async( req, res, next ) => {
     next();
 }
 
+const commentaryAuthor = async( req, res, next ) => {
+    const commentary = await CommentaryService.getCommentary(req.params.id);
+    if(req.userId != commentary.authorId){
+        return customErrorResponse(res, "Commentary does not belong to user", 403);
+    }
+    next();
+}
+ 
 module.exports = {
     productExists,
-    productAuthor
+    productAuthor,
+    commentaryAuthor
 }
